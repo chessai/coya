@@ -1,61 +1,71 @@
-cabal-version:       2.0
-name:                coya
-version:             0.0.0
-synopsis:            See README for more info
-description:         See README for more info
-homepage:            https://github.com/chessai/coya
-bug-reports:         https://github.com/chessai/coya/issues
-license:             BSD3
-license-file:        LICENSE
-author:              chessai
-maintainer:          chessai1996@gmail.com
-copyright:           2019 chessai
-category:            Data, Math
-build-type:          Simple
-extra-doc-files:     README.md
-                   , CHANGELOG.md
-tested-with:         GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.3
+cabal-version: 2.4
+name:
+  coya
+version:
+  0.1.0.0
+synopsis:
+  Coya monoids
+description:
+  Take some log semiring R. Then, for any two x,y :: R, the following holds:
+  .
+  x ^ log y == y ^ log x == e ^ (log x * log y)
+  .
+  A Coya monoid is some commutative monoid (R, #), where x # y = x ^ log y.
+  The following laws hold:
+  .
+  e # x = x (Left Identity)
+  . 
+  x # e = x (Right Identity)
+  . 
+  (x # y) # z == x # (y # z) (Associativity)
+  .
+  x # y == y # x (Commutativity)
+  .
+  If the R is a poset where all elements in R are greater than one, then R
+  also forms a group:
+  .
+  x # (e ^ (1 / log (x))) == x
+homepage:
+  https://github.com/chessai/coya
+bug-reports:
+  https://github.com/chessai/coya/issues
+license:
+  BSD-3-Clause
+license-file:
+  LICENSE
+author:
+  chessai
+maintainer:
+  chessai1996@gmail.com
+copyright:
+  2019 chessai
+category:
+  Data, Math
+build-type:
+  Simple
+extra-doc-files:
+    README.md
+  , CHANGELOG.md
+tested-with:
+  GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.3
 
 source-repository head
-  type:                git
-  location:            https://github.com/chessai/coya.git
+  type:
+    git
+  location:
+    https://github.com/chessai/coya.git
 
 library
-  hs-source-dirs:      src
-  exposed-modules:     Coya
-                       
-
-  build-depends:       base >= 4.10.1.0 && < 4.13
-                     
-
-  ghc-options:         -Wall
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-
-  default-language:    Haskell2010
-
-test-suite coya-test
-  type:                exitcode-stdio-1.0
-  hs-source-dirs:      test
-  main-is:             Spec.hs
-
-  build-depends:       base >= 4.10.1.0 && < 4.13
-                     , coya
-                     
-
-  ghc-options:         -Wall
-                       -threaded
-                       -rtsopts
-                       -with-rtsopts=-N
-                       -Wincomplete-uni-patterns
-                       -Wincomplete-record-updates
-                       -Wcompat
-                       -Widentities
-                       -Wredundant-constraints
-                       -fhide-source-paths
-
-  default-language:    Haskell2010
+  hs-source-dirs:
+    src
+  exposed-modules:
+    Coya
+  other-modules:
+    Prelude 
+  build-depends:
+    , base-noprelude >= 4.10.1 && < 4.13
+    , semirings >= 0.3
+  ghc-options:
+    -Wall
+  default-language:
+    Haskell2010

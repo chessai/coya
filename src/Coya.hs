@@ -1,6 +1,6 @@
 module Coya
-       ( someFunc
-       ) where
+  (
+  ) where
 
-someFunc :: IO ()
-someFunc = putStrLn ("someFunc" :: String)
+class Coya a where
+  (#) :: a -> a -> a
