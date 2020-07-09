@@ -14,9 +14,9 @@ description:
   The following laws hold:
   .
   e # x = x (Left Identity)
-  . 
+  .
   x # e = x (Right Identity)
-  . 
+  .
   (x # y) # z == x # (y # z) (Associativity)
   .
   x # y == y # x (Commutativity)
@@ -61,7 +61,7 @@ library
   exposed-modules:
     Coya
   build-depends:
-    , base >= 4.10.1 && < 4.13
+    , base >= 4.10.1 && < 5
     , groups >= 0.4
     , primitive >= 0.6.4
     , refined >= 0.3
