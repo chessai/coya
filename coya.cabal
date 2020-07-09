@@ -2,7 +2,7 @@ cabal-version: 2.4
 name:
   coya
 version:
-  0.1
+  0.1.0.1
 synopsis:
   Coya monoids
 description:
